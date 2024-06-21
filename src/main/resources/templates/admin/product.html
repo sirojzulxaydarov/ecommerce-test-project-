@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <style>
+        .sider {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<th:block th:insert="fragments::header"/>
+<div class="row">
+    <th:block th:insert="fragments::sider-admin"/>
+    <div class="col-9">
+        <a class="btn btn-dark text-white" href="/admin/product/create">Add product</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Photo</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product:${products}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.category.name}"></td>
+                <td>
+                    <img width="50" height="50" th:src="|/file/product/${product.id}|" alt="">
+                </td>
+                <td>
+                    <button class="btn btn-info">edit</button>
+                    <button class="btn btn-danger">delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

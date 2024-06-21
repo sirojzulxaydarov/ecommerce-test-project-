@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+</head>
+<body>
+<div th:fragment="header" class="bg-dark text-white row px-3">
+    <div class="col-1">
+        <a href="/" class="text-white">
+            <h1>LOGO</h1>
+        </a>
+    </div>
+    <div class="col-6 offset-5">
+        <ul class="list-unstyled d-flex">
+            <a th:if="${basketSize!=null}" href="/basket">
+                <li class="mx-3 text-white">Basket <span th:text="${basketSize}"> </span></li>
+            </a>
+            <a href="/admin/category">
+                <li class="mx-3 text-white">Login</li>
+            </a>
+        </ul>
+    </div>
+</div>
+
+<div th:fragment="sider-admin" class="col-3 sider bg-dark">
+    <div class="card">
+        <ul class="list-group">
+            <a href="/admin/category" class="list-group-item">Catgory</a>
+            <a href="/admin/product" class="list-group-item">Product</a>
+            <a href="/" class="list-group-item">Home</a>
+            <a href="/order" class="list-group-item">Order</a>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+</html>
